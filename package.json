@@ -5,20 +5,22 @@
   "dependencies": {
     "@standard-schema/spec": "^1.0.0",
     "@standard-schema/utils": "^0.3.0",
-    "valibot": "^1.0.0"
+    "valibot": "^1.1.0"
   },
   "devDependencies": {
     "@types/bun": "1.2.10",
     "@types/mjml": "^4.7.4",
-    "hono": "^4.7.8",
+    "fast-xml-parser": "^5.2.3",
+    "hono": "^4.7.9",
     "jszip": "^3.10.1",
-    "kysely": "^0.28.1",
-    "kysely-codegen": "^0.18.3",
+    "kysely": "^0.28.2",
+    "kysely-codegen": "^0.18.5",
     "mjml": "^4.15.3",
-    "stripe": "^18.0.0",
+    "stripe": "^18.1.0",
     "typescript": "^5.8.3"
   },
   "peerDependencies": {
+    "fast-xml-parser": "^5.2.2",
     "hono": "^4.7.8",
     "jszip": "^3.10.1",
     "kysely": "^0.27.5",
@@ -27,6 +29,8 @@
   },
   "exports": {
     "./array": "./array/index.ts",
+    "./async": "./async/index.ts",
+    "./cache": "./cache/index.ts",
     "./cms": "./cms/index.ts",
     "./config": "./config/index.ts",
     "./consent": "./consent/index.ts",
@@ -62,9 +66,13 @@
     "./tsconfig/app": "./tsconfig/app.json",
     "./types": "./types/index.ts",
     "./valibot": "./valibot/index.ts",
+    "./xml": "./xml/index.ts",
     "./zoom": "./zoom/index.ts"
   },
   "peerDependenciesMeta": {
+    "fast-xml-parser": {
+      "optional": true
+    },
     "hono": {
       "optional": true
     },

@@ -1,6 +1,6 @@
+import { randomUUID } from 'crypto';
 import type { FileRefBlock, RichTextBlock } from './blocks';
 import type { StandardDocument } from './document';
-import { randomUUID } from 'crypto';
 
 export class CmsDocumentBuilder {
   private title = '';

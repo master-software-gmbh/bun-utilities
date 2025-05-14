@@ -2,8 +2,8 @@ import type { StandardSchemaV1 } from '@standard-schema/spec';
 import { getDotPath } from '@standard-schema/utils';
 import { logger } from '../../logging';
 import { type Result, error, success, successful } from '../../result';
-import type { BaseDocument } from './document';
 import type { CmsRepository } from './CmsRepository';
+import type { BaseDocument } from './document';
 
 export class CmsService<DocumentSchema extends BaseDocument> {
   private readonly repository: CmsRepository;

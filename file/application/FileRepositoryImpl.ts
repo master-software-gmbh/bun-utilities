@@ -1,7 +1,7 @@
 import type { Kysely, Selectable } from 'kysely';
 import { type Result, error, success } from '../../result';
-import { FileEntity } from '../domain/file';
 import type { FileRepository } from '../domain/FileRepository';
+import { FileEntity } from '../domain/file';
 import type { DB } from '../infrastructure/types';
 
 export class FileRepositoryImpl implements FileRepository {

@@ -8,14 +8,14 @@ declare global {
     /**
      * Returns `true` if the array is not empty.
      */
-    isNotEmpty(): this is T & LengthAtLeast<T[], 1>;
+    isNotEmpty(): this is T & MinLength<T[], 1>;
 
     /**
      * Returns `true` if the array has at least `length` elements.
      * @param length - The minimum number of elements the array must have.
      * @returns `true` if the array has at least `length` elements.
      */
-    lengthAtLeast<L extends number>(length: L): this is T & LengthAtLeast<T[], L>;
+    lengthAtLeast<L extends number>(length: L): this is T & MinLength<T[], L>;
 
     /**
      * Shuffles the elements of the array in place.
@@ -69,20 +69,17 @@ type Indices<L extends number, T extends number[] = []> = T['length'] extends L
   ? T[number]
   : Indices<L, [T['length'], ...T]>;
 
-type LengthAtLeast<T extends readonly unknown[], L extends number> = Pick<Required<T>, Indices<L>>;
+export type MinLength<T extends readonly unknown[], L extends number> = Pick<Required<T>, Indices<L>>;
 
 Array.prototype.isEmpty = function () {
   return this.length === 0;
 };
 
-Array.prototype.isNotEmpty = function <T>(this: unknown[]): this is T & LengthAtLeast<T[], 1> {
+Array.prototype.isNotEmpty = function <T>(this: unknown[]): this is T & MinLength<T[], 1> {
   return this.length > 0;
 };
 
-Array.prototype.lengthAtLeast = function <T, L extends number>(
-  this: T[],
-  length: L,
-): this is T & LengthAtLeast<T[], L> {
+Array.prototype.lengthAtLeast = function <T, L extends number>(this: T[], length: L): this is T & MinLength<T[], L> {
   return this.length >= length;
 };
 
@@ -146,5 +143,3 @@ Array.prototype.max = function () {
 
   return null;
 };
-
-export {};

@@ -1,17 +1,17 @@
 import { URLSearchParams } from 'url';
+import { typedFetch } from '../http';
 import { logger } from '../logging';
-import { error, success, type Result } from '../result';
+import { type Result, error, success } from '../result';
+import type { GeocodingService } from './interface';
 import {
+  type Coordinates,
   GeocodingResponse,
   PlacesAutocompleteResponse,
-  type Coordinates,
   type PredictionInput,
   type PredictionOutput,
   type ReverseGeocodingInput,
   type ReverseGeocodingOutput,
 } from './types';
-import type { GeocodingService } from './interface';
-import { typedFetch } from '../http';
 
 export class GoogleMapsGeocodingService implements GeocodingService {
   private readonly key: string;

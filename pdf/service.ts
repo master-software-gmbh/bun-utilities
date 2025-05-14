@@ -1,4 +1,4 @@
-import { error, success, type Result } from '../result';
+import { type Result, error, success } from '../result';
 import type { PdfServiceConfig } from './types';
 
 export class PdfService {
